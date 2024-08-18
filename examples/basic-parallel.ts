@@ -1,4 +1,4 @@
-import { AiDAG, AiDAGType } from "../src"
+import { executeWorkflow, AiDAGType } from "../src"
 
 const dagDefinition: AiDAGType = {
   nodes: {
@@ -61,7 +61,7 @@ Artificial intelligence (AI) is intelligence demonstrated by machines, as oppose
 async function runConcurrentWorkflow() {
   console.time("Workflow Execution Time")
   try {
-    const results = await AiDAG.executeWorkflow(dagDefinition, inputText, {
+    const results = await executeWorkflow(dagDefinition, inputText, {
       debug: true,
     })
 

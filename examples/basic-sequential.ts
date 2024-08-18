@@ -1,4 +1,4 @@
-import { AiDAG, AiDAGType } from "../src"
+import { executeWorkflow, AiDAGType } from "../src"
 
 const dagDefinition: AiDAGType = {
   nodes: {
@@ -6,7 +6,7 @@ const dagDefinition: AiDAGType = {
       id: "summarize",
       params: {
         prompt: "Summarize the following text in less than 8 words:",
-        model: "gpt-4o",
+        model: "gpt-4",
       },
       children: ["translate"],
     },
@@ -14,7 +14,7 @@ const dagDefinition: AiDAGType = {
       id: "translate",
       params: {
         prompt: "Translate the following text to French:",
-        model: "gpt-4o-mini",
+        model: "gpt-3.5-turbo",
       },
       children: [],
     },
@@ -28,7 +28,7 @@ Artificial intelligence (AI) is intelligence demonstrated by machines, as oppose
 
 async function runWorkflow() {
   try {
-    const results = await AiDAG.executeWorkflow(dagDefinition, inputText, {
+    const results = await executeWorkflow(dagDefinition, inputText, {
       debug: true,
     })
 

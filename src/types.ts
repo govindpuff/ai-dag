@@ -33,7 +33,7 @@ export interface GenerateTextParams {
 }
 
 export interface Provider {
-  generateText(params: GenerateTextParams): Promise<string>
+  generateText: (params: GenerateTextParams) => Promise<string>
 }
 
 export type DAGExecutionResult = NodeOutput[]
