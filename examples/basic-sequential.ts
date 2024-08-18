@@ -1,7 +1,4 @@
-import dotenv from "dotenv"
 import { AiDAG, AiDAGType } from "../src"
-
-dotenv.config()
 
 const dagDefinition: AiDAGType = {
   nodes: {
