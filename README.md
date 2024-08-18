@@ -17,9 +17,6 @@ Here's a basic example of how to use `ai-dag`:
 
 ```typescript
 import { AiDAG, AiDAGType } from "ai-dag"
-import dotenv from "dotenv"
-
-dotenv.config()
 
 const dagDefinition: AiDAGType = {
   nodes: {

@@ -1,5 +1,8 @@
 import { OpenAI } from "openai"
 import { GenerateTextParams, Model, Provider } from "../types"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 export class OpenAIProvider implements Provider {
   private openai: OpenAI
