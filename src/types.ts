@@ -36,6 +36,9 @@ export interface Provider {
   generateText: (params: GenerateTextParams) => Promise<string>
 }
 
-export type DAGExecutionResult = NodeOutput[]
+export interface DAGExecutionResult {
+  output: NodeOutput[]
+  intermediate: NodeOutput[]
+}
 
 export type ProviderFactory = (model: Model) => Provider
