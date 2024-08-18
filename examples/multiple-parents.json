@@ -1,0 +1,29 @@
+{
+  "nodes": {
+    "summarize_en": {
+      "id": "summarize_en",
+      "params": {
+        "prompt": "Summarize the following text:",
+        "model": "gpt-4"
+      },
+      "children": ["combine_summaries"]
+    },
+    "summarize_fr": {
+      "id": "summarize_fr",
+      "params": {
+        "prompt": "Summarize the following text in French:",
+        "model": "gpt-4o"
+      },
+      "children": ["combine_summaries"]
+    },
+    "combine_summaries": {
+      "id": "combine_summaries",
+      "params": {
+        "prompt": "Combine the summaries into a single, coherent bilingual summary. Switching between languages for each alternate word. For example, \"I pense that il y a a bucket ici.\"",
+        "model": "gpt-4o"
+      },
+      "children": []
+    }
+  },
+  "rootNodes": ["summarize_en", "summarize_fr"]
+}

@@ -1,0 +1,53 @@
+{
+  "nodes": {
+    "summarize": {
+      "id": "summarize",
+      "params": {
+        "prompt": "Summarize the following text in 10 words:",
+        "model": "gpt-4o"
+      },
+      "children": ["translate_french", "translate_spanish"]
+    },
+    "keyword_extract": {
+      "id": "keyword_extract",
+      "params": {
+        "model": "gpt-4o",
+        "prompt": "Extract 5 key words from the following text:"
+      },
+      "children": ["elaborate"]
+    },
+    "sentiment_analysis": {
+      "id": "sentiment_analysis",
+      "params": {
+        "model": "gpt-4o",
+        "prompt": "Analyze the sentiment of the following text:"
+      },
+      "children": []
+    },
+    "translate_french": {
+      "id": "translate_french",
+      "params": {
+        "model": "gpt-4o",
+        "prompt": "Translate the following text to French:"
+      },
+      "children": []
+    },
+    "translate_spanish": {
+      "id": "translate_spanish",
+      "params": {
+        "model": "gpt-4o",
+        "prompt": "Translate the following text to Spanish:"
+      },
+      "children": []
+    },
+    "elaborate": {
+      "id": "elaborate",
+      "params": {
+        "model": "gpt-4o",
+        "prompt": "Elaborate on the following keywords (one sentence each):"
+      },
+      "children": []
+    }
+  },
+  "rootNodes": ["summarize", "keyword_extract", "sentiment_analysis"]
+}
