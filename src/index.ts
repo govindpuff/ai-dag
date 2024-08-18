@@ -5,10 +5,11 @@ import { AiDAGType, DAGExecutionResult } from "./types"
 export const executeWorkflow = async (
   dagDefinition: AiDAGType,
   input: string,
-  options: { debug?: boolean } = {}
+  options: { debug: boolean; apiKey?: string } = { debug: false }
 ): Promise<DAGExecutionResult> => {
-  const providerFactory = (model: string) => createOpenAIProvider()
-  return executeDAG(dagDefinition, input, providerFactory, options.debug)
+  const providerFactory = (model: string) =>
+    createOpenAIProvider(options.apiKey)
+  return executeDAG(dagDefinition, input, providerFactory, options)
 }
 
 export * from "./types"

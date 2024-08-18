@@ -4,8 +4,8 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-export const createOpenAIProvider = (): Provider => {
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+export const createOpenAIProvider = (apiKey?: string): Provider => {
+  const openai = new OpenAI({ apiKey: apiKey ?? process.env.OPENAI_API_KEY })
 
   return {
     generateText: async (params: GenerateTextParams): Promise<string> => {

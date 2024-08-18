@@ -32,7 +32,7 @@ export const executeDAG = async (
   dag: AiDAGType,
   input: string,
   providerFactory: ProviderFactory,
-  debug = false
+  options: { debug: boolean }
 ): Promise<DAGExecutionResult> => {
   const { parentCount, completedParents, nodeInputs } = initializeNodeState(dag)
   const intermediateResults: NodeOutput[] = []
@@ -53,11 +53,11 @@ export const executeDAG = async (
           nodeInputs.get(id)?.values() || []
         ).join("\n\n")
 
-        if (debug) {
+        if (options.debug) {
           console.log(`Starting job with id ${id}.`)
         }
         const result = await executeNode(node, nodeInputString, providerFactory)
-        if (debug) {
+        if (options.debug) {
           console.log(`Finished job with id ${id}. Output:\n`)
           console.log(result)
         }
