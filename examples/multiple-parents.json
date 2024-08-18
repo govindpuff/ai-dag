@@ -4,7 +4,7 @@
       "id": "summarize_en",
       "params": {
         "prompt": "Summarize the following text:",
-        "model": "gpt-4"
+        "model": "gpt-4o-mini"
       },
       "children": ["combine_summaries"]
     },
@@ -12,7 +12,7 @@
       "id": "summarize_fr",
       "params": {
         "prompt": "Summarize the following text in French:",
-        "model": "gpt-4o"
+        "model": "gpt-4o-mini"
       },
       "children": ["combine_summaries"]
     },
