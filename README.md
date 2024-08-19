@@ -15,7 +15,7 @@ AIDAG is a TypeScript library for executing AI-driven workflows defined as Direc
 Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/yourusername/aidag.git
+git clone https://github.com/govindpuff/aidag.git
 cd aidag
 npm install
 ```
