@@ -1,22 +1,35 @@
-import {
-  Node as NodeType,
-  NodeOutput,
-  NodeParams,
-  ProviderFactory,
-} from "./types"
+import { DAGNode, NodeOutput, ProviderFactory, NodeParams } from "./types"
+
+export abstract class BaseNode implements DAGNode {
+  id: string
+  type: string
+  params: NodeParams
+  children: string[]
+
+  constructor(
+    id: string,
+    type: string,
+    params: NodeParams,
+    children: string[]
+  ) {
+    this.id = id
+    this.type = type
+    this.params = params
+    this.children = children
+  }
+
+  abstract execute(
+    input: string,
+    providerFactory: ProviderFactory
+  ): Promise<string>
+}
 
 export const executeNode = async (
-  node: NodeType,
+  node: DAGNode,
   input: string,
   providerFactory: ProviderFactory
 ): Promise<NodeOutput> => {
-  const params: NodeParams = {
-    ...node.params,
-    prompt: `${node.params.prompt}\n${input}`,
-  }
-
-  const provider = providerFactory(params.model)
-  const result = await provider.generateText(params)
+  const result = await node.execute(input, providerFactory)
 
   return {
     nodeId: node.id,

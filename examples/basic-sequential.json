@@ -2,6 +2,7 @@
   "nodes": {
     "summarize": {
       "id": "summarize",
+      "type": "AI",
       "params": {
         "prompt": "Summarize the following text in less than 8 words:",
         "model": "gpt-4"
@@ -10,6 +11,7 @@
     },
     "translate": {
       "id": "translate",
+      "type": "AI",
       "params": {
         "prompt": "Translate the following text to French:",
         "model": "gpt-4o"

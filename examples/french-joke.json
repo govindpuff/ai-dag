@@ -1,0 +1,29 @@
+{
+  "nodes": {
+    "fetchJoke": {
+      "id": "fetchJoke",
+      "type": "HTTP",
+      "params": {
+        "url": "https://icanhazdadjoke.com",
+        "method": "GET",
+        "outputPath": "joke",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "children": ["translateJoke"]
+    },
+    "translateJoke": {
+      "id": "translateJoke",
+      "type": "AI",
+      "params": {
+        "prompt": "Translate the following joke to French: ",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 200
+      },
+      "children": []
+    }
+  },
+  "rootNodes": ["fetchJoke"]
+}
