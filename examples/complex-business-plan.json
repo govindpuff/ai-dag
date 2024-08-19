@@ -2,6 +2,7 @@
   "nodes": {
     "market_analysis": {
       "id": "market_analysis",
+      "type": "AI",
       "params": {
         "prompt": "Conduct a comprehensive market analysis for a new smartphone app that helps users track and reduce their carbon footprint. Include current market trends, potential competitors, and target demographic.",
         "model": "gpt-4o-mini"
@@ -10,6 +11,7 @@
     },
     "tech_feasibility": {
       "id": "tech_feasibility",
+      "type": "AI",
       "params": {
         "prompt": "Assess the technical feasibility of developing a smartphone app that tracks users' daily activities and calculates their carbon footprint. Consider required technologies, potential challenges, and implementation timeline.",
         "model": "gpt-4o-mini"
@@ -18,6 +20,7 @@
     },
     "swot_analysis": {
       "id": "swot_analysis",
+      "type": "AI",
       "params": {
         "prompt": "Based on the market analysis and technical feasibility assessment, conduct a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis for the carbon footprint tracking app.",
         "model": "gpt-4o-mini"
@@ -26,6 +29,7 @@
     },
     "financial_projection": {
       "id": "financial_projection",
+      "type": "AI",
       "params": {
         "prompt": "Create a 3-year financial projection for the carbon footprint tracking app. Include estimated development costs, marketing expenses, revenue streams, and projected profitability. Use the market analysis as a basis for your projections.",
         "model": "gpt-4o-mini"
@@ -34,6 +38,7 @@
     },
     "product_features": {
       "id": "product_features",
+      "type": "AI",
       "params": {
         "prompt": "Based on the market analysis and technical feasibility assessment, propose a list of key features for the carbon footprint tracking app. Prioritize features that would differentiate the app from potential competitors and appeal to the target demographic.",
         "model": "gpt-4o-mini"
@@ -42,6 +47,7 @@
     },
     "ui_mockup": {
       "id": "ui_mockup",
+      "type": "AI",
       "params": {
         "prompt": "Create a textual description of a user interface mockup for the main screen of the carbon footprint tracking app. Focus on user-friendly design and clear presentation of key information. Base the design on the proposed product features.",
         "model": "gpt-4o-mini"
@@ -50,6 +56,7 @@
     },
     "executive_summary": {
       "id": "executive_summary",
+      "type": "AI",
       "params": {
         "prompt": "Write an executive summary for the carbon footprint tracking app business proposal. Incorporate key points from the SWOT analysis and financial projections. The summary should be concise, compelling, and highlight the unique value proposition of the app.",
         "model": "gpt-4o-mini"
@@ -58,6 +65,7 @@
     },
     "pitch_deck": {
       "id": "pitch_deck",
+      "type": "AI",
       "params": {
         "prompt": "Create an outline for a pitch deck for the carbon footprint tracking app. Include slides for: problem statement, solution, market opportunity, product features, business model, financial projections, and team. Use information from the financial projections, product features, and UI mockup.",
         "model": "gpt-4o-mini"
@@ -66,6 +74,7 @@
     },
     "final_proposal": {
       "id": "final_proposal",
+      "type": "AI",
       "params": {
         "prompt": "Compile a comprehensive business proposal for the carbon footprint tracking app. Incorporate the executive summary, key points from the SWOT analysis, financial projections, product features, and an abbreviated version of the pitch deck outline. The proposal should be well-structured, persuasive, and ready for presentation to potential investors.",
         "model": "gpt-4o-mini"
