@@ -2,10 +2,6 @@ import fs from "fs"
 import path from "path"
 import { AiDAGType, executeWorkflow } from "../src"
 
-const INPUT = `
-Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to natural intelligence displayed by animals including humans. AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals.
-`
-
 async function run() {
   const filename = process.argv[2]
 
@@ -18,9 +14,10 @@ async function run() {
   try {
     const filePath = path.resolve(process.cwd(), filename)
     const fileContent = fs.readFileSync(filePath, "utf-8")
-    const dagDefinition: AiDAGType = JSON.parse(fileContent)
+    const definition: AiDAGType = JSON.parse(fileContent)
 
-    const results = await executeWorkflow(dagDefinition, INPUT, {
+    const results = await executeWorkflow({
+      definition,
       debug: false,
     })
 

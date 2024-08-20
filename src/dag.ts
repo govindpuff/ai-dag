@@ -28,21 +28,28 @@ const initializeNodeState = (dag: AiDAGType) => {
   return { parentCount, completedParents, nodeInputs }
 }
 
-export const executeDAG = async (
-  dag: AiDAGType,
-  input: string,
-  providerFactory: ProviderFactory,
-  options: { debug: boolean }
-): Promise<DAGExecutionResult> => {
+export const executeDAG = async ({
+  dag,
+  debug,
+  input,
+  providerFactory,
+}: {
+  debug: boolean
+  dag: AiDAGType
+  input?: string
+  providerFactory: ProviderFactory
+}): Promise<DAGExecutionResult> => {
   const { parentCount, completedParents, nodeInputs } = initializeNodeState(dag)
   const intermediateResults: NodeOutput[] = []
   const leafResults: NodeOutput[] = []
   let queue = [...dag.rootNodes]
   const processedNodes = new Set<string>()
 
-  dag.rootNodes.forEach((rootId) => {
-    nodeInputs.get(rootId)?.set("input", input)
-  })
+  if (input) {
+    dag.rootNodes.forEach((rootId) => {
+      nodeInputs.get(rootId)?.set("input", input)
+    })
+  }
 
   while (queue.length > 0) {
     const batch = new Set(queue)
@@ -53,11 +60,11 @@ export const executeDAG = async (
           nodeInputs.get(id)?.values() || []
         ).join("\n\n")
 
-        if (options.debug) {
+        if (debug) {
           console.log(`Starting job with id ${id}.`)
         }
         const result = await executeNode(node, nodeInputString, providerFactory)
-        if (options.debug) {
+        if (debug) {
           console.log(`Finished job with id ${id}. Output:\n`)
           console.log(result)
         }
