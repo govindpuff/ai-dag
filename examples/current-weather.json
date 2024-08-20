@@ -1,0 +1,28 @@
+{
+  "nodes": {
+    "getWeather": {
+      "id": "getWeather",
+      "type": "HTTP",
+      "params": {
+        "url": "https://goweather.herokuapp.com/weather/San%20Francisco",
+        "method": "GET",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "children": ["natural"]
+    },
+    "natural": {
+      "id": "natural",
+      "type": "AI",
+      "params": {
+        "prompt": "Summarize this weather forecast in two sentences:",
+        "model": "gpt-4o",
+        "temperature": 0.7,
+        "max_tokens": 200
+      },
+      "children": []
+    }
+  },
+  "rootNodes": ["getWeather"]
+}
